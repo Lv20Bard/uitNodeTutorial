@@ -17,6 +17,7 @@
 // Our dependencies (modules)
 var http = require('http');
 var express = require('express');
+var message = require('./messages.js')
 // @TODO: <Problem 2> you should add the messages module here. 
 
 // initialize the app using express
@@ -28,7 +29,18 @@ var app = express();
 app.get('/', function(req, res) {
 
 	// @TODO: <Problem 2> Update your hard coded text into the correct module object
-	res.write('If you see this, your route is working!'); // write something to standard output
+	res.write(message.home); // write something to standard output
+	res.end();	// end the event
+});
+
+app.get('/about', function(req, res) {
+	res.write(message.about); // write something to standard output
+	res.end();	// end the event
+
+});
+
+app.get('/contact', function(req, res) {
+	res.write(message.contact); // write something to standard output
 	res.end();	// end the event
 });
 
